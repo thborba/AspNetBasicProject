@@ -1,9 +1,9 @@
-﻿using Domain.DTO;
+﻿using Infrastructure.DTO;
 
 namespace Domain.Interfaces
 {
     public interface IReadFile
-    {
-        public IAsyncEnumerable<FileDetails> ReadProcessedFiles(CancellationToken cancellationToken);
+    { 
+        public List<FileDetails> ReadProcessedFiles();
     }
 }

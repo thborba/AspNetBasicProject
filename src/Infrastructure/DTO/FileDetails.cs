@@ -1,16 +1,15 @@
-﻿namespace Domain.DTO
+﻿namespace Infrastructure.DTO
 {
     public class FileDetails
     {
-
         public string Name { get; set; }
-        public int Size { get; set; }
+        public long SizeInBytes { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        public FileDetails(string name, int size, DateTime updatedAt)
+        public FileDetails(string name, long size, DateTime updatedAt)
         {
             Name = name;
-            Size = size;
+            SizeInBytes = size;
             UpdatedAt = updatedAt;
         }
     }

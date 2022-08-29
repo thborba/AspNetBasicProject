@@ -1,5 +1,4 @@
-﻿using Domain.DTO;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -22,6 +21,13 @@ namespace Api.Controllers
         public async Task<IActionResult> ProcessFile([FromBody] string path, CancellationToken cancellationToken) {
             await _processFile.Execute(path, cancellationToken);
             return NoContent();
+        }
+
+        [HttpGet()]
+        public IActionResult ReadProcessedFiles()
+        {
+            var files = _readFile.ReadProcessedFiles();
+            return Ok(files);
         }
 
     }
