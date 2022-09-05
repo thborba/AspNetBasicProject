@@ -15,14 +15,8 @@ namespace Api
         }
 
         protected override Task ExecuteAsync(CancellationToken cancellationToken){
-            System.Diagnostics.Debug.WriteLine("testetest");
            return _subscribe.Subscribe<T>(_eventHandler.Execute, cancellationToken);
         }
-          
-
-        //private Task OnEvent(T obj, CancellationToken cancellationToken)
-        //{
-        //    System.Diagnostics.Debug.WriteLine(obj?.ToString());
-        //    return Task.CompletedTask;
+      
     }
 }
