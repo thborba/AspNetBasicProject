@@ -2,6 +2,6 @@
 {
     public interface IProcessFile
     {
-        public Task Execute(string path, CancellationToken cancellationToken);
+        Task Execute(string path, CancellationToken cancellationToken);
     }
 }

@@ -4,6 +4,6 @@ namespace Domain.Interfaces
 {
     public interface IReadFile
     { 
-        public List<FileDetails> ReadProcessedFiles();
+        List<FileDetails> ReadProcessedFiles();
     }
 }

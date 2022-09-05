@@ -3,7 +3,8 @@ using Domain.DependencyInjection;
 using Infrastructure.DependencyInjection;
 using Domain.Configuration;
 using Api.Middlewares;
-
+using Api;
+using Domain.EventHandlers.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,8 @@ DependencyInjectionDomain.Add(builder.Services);
 
 DependencyInjectionInfrastructure.Add(builder.Services);
 
+builder.Services.AddHostedService<EventConsumer<FileLineEvent>>();
+
 builder.Services.AddSingleton(builder.Configuration.GetSection("FileReaderOptions").Get<FileReaderOptions>());
 
 var app = builder.Build();
@@ -35,7 +38,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SimpleApi v1"));
 }
-
 
 app.UseHttpsRedirection();
 
